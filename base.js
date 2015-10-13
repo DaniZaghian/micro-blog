@@ -10,16 +10,21 @@ $(document).ready(function () {
     	e.preventDefault();
         var toPost = $('#inputPost').val();
 
-        //on submit, append posted item to UL
-        $('ul').append('<li class="list-group-item">' + toPost + '</li>');
+        if (toPost) {
 
-        //clear text in form once submitted
-        $('#inputPost').val('');
+	        //on submit, append posted item to UL
+	        $('ul').append('<li class="list-group-item">' + toPost + '</li>');
 
-        //increase post count and append to count div
-		countPosts = countPosts + 1;
-		$("#counter").text(" ").append("Posts: " + countPosts);
-   
+	        //clear text in form once submitted
+	        $('#inputPost').val('');
+
+	        //increase post count and append to count div
+			countPosts = countPosts + 1;
+			$("#counter").text(" ").append("Posts: " + countPosts);
+		} else {
+			$('ul').prepend('<div class="alert alert-warning" class="close" data-dismiss="alert"><strong>Oh no!</strong> You forgot to write something...</div>');
+		}
+	   
     });
 
     //when you click the element, remove from list
@@ -29,6 +34,11 @@ $(document).ready(function () {
 		$("#counter").text(" ").append("Posts: " + countPosts);
     });
 
+    //draggable gumpy cat
+    $('#grumpy').draggable();
+
+    //sort the posts
+    $('ul').sortable();
 
     //tried using affix img but found float left was easier
  	//$('img').affix-bottom({
