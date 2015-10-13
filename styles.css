@@ -1,0 +1,30 @@
+body {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  margin-top: 100px;
+  text-align: center;
+}
+
+
+form {
+    display: inline-block;
+}
+
+#postButton{
+    display: inline-block;
+    height:40px;
+	width:70px;
+	background-color:skyblue;
+	font-family:arial;
+	color:white;
+	border-radius: 5px;
+	text-align:center;
+	margin-top:2px;
+}
+
+.row {
+	text-align: center;
+}
