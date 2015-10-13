@@ -2,6 +2,8 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function () {
 
+	var backgrounds =['gray', 'dimgray', 'lightgray', 'plum', 'rebeccapurple', 'darkslateblue', 'mediumpurple', 'indigo', 'darkslategray', 'steelblue'];
+
 	// find starting number of posts, append to count div
 	var countPosts = 0;
 
@@ -13,7 +15,7 @@ $(document).ready(function () {
         if (toPost) {
 
 	        //on submit, append posted item to UL
-	        $('ul').append('<li class="list-group-item">' + toPost + '</li>');
+	        $('ul').append('<li class="list-group-item">' + toPost + '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></li>');
 
 	        //clear text in form once submitted
 	        $('#inputPost').val('');
@@ -21,8 +23,13 @@ $(document).ready(function () {
 	        //increase post count and append to count div
 			countPosts = countPosts + 1;
 			$("#counter").text(" ").append("Posts: " + countPosts);
+
+			var backgroundsIndex = Math.floor(Math.random() * (backgrounds.length));
+
+			$('body').css({"background-color": backgrounds[backgroundsIndex]});
+
 		} else {
-			$('ul').prepend('<div class="alert alert-warning" class="close" data-dismiss="alert"><strong>Oh no!</strong> You forgot to write something...</div>');
+			$('ul').prepend('<div class="alert alert-warning" class="close" data-dismiss="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><strong> Oh no!</strong> You forgot to write something...</div>');
 		}
 	   
     });

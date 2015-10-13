@@ -41,3 +41,10 @@ body {
 	text-align:center;
 }
 
+li {
+	text-align: left;
+}
+
+li span {
+	float: right;
+}
